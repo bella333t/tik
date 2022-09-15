@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiktalk Signup</title>{% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/tiktalk.css' %}">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body><center><div id="top"><span id="sidebar">Tiktalk</span></div>
+    <div id="container">
+    <img src="{%  static 'img/container-img.png' %}" alt="" id="image">
+    <p id="header">Sign up for Tiktalk with Google<br> to experience complete functions</p>
+    <a href="{% url 'index' %}" id="Google" target="_blank"><img src="{%  static 'img/Tgoogle.jpg' %}" id="google">Continue with Google</a>
+    <p id="footer">  Welcome to TikTok (the “Platform”). The Platform is provided and control by TikTok Pte. Ltd., its registered address at 1 Raffles Quay, #26-10, South Tower, Singapore 048583 
+    . Login means you have to agree to Terms of Use Broadcaster agreement & privacy policy . (You have to be the minimum Age to use Tiktalk)... <p id="foot">powered by TikTalk Pte. Ltd.</p></p>
+    </div>
+    <p id="bottom"></p>
+</body>
+</html> 

